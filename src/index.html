@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./output.css" rel="stylesheet">
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body class="bg-backgroud-white">
 
@@ -182,7 +182,7 @@
 
         <!-- Modal Cart -->
 
-        <div class="bg-black/60 w-full h-full z-[99] top-0 left-0 fixed items-center justify-center hidden">
+        <div id="cart-modal" class="bg-black/60 w-full h-full z-[99] top-0 left-0 fixed items-center justify-center hidden">
 
             <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
                 <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho</h2>
@@ -197,7 +197,7 @@
 
                 <input type="text" placeholder="Digite seu endereço completo: " id="address" class="w-full border-2 p-1 rounded my-1">
 
-                <p class="text-red-500 hidden">Digite seu endereço completo</p>
+                <p id="address-warn" class="text-red-500 hidden">Digite seu endereço completo</p>
 
                 <div class="flex items-center justify-between mt-4 w-5">
                     <button id="close-modal-btn">Fechar</button>
