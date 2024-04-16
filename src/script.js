@@ -9,9 +9,19 @@ const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
 
-//Abrir o Modal do Carrinho
+// Abrir o Modal do Carrinho
 cartBtn.addEventListener("click", () => {
     modal.style.display = "flex";
     modal.classList.remove("hidden");
 });
 
+// Fechar o modal quando clicar fora
+modal.addEventListener("click", (event) => {
+    if(event.target === modal){
+        modal.style.display = "none"
+    };
+});
+
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none"
+})
