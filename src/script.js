@@ -9,6 +9,8 @@ const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
 
+let cart = [];
+
 // Abrir o Modal do Carrinho
 cartBtn.addEventListener("click", () => {
     modal.style.display = "flex";
@@ -22,6 +24,36 @@ modal.addEventListener("click", (event) => {
     };
 });
 
+
+// Fechar o modal com o botão "fechar"
 closeModalBtn.addEventListener("click", () => {
     modal.style.display = "none"
 })
+
+menu.addEventListener("click", (event) => {
+    let parentBtn = event.target.closest(".add-to-card-btn");
+
+    if (parentBtn) {
+        const name = parentBtn.getAttribute("data-name");
+        const price = parseFloat(parentBtn.getAttribute("data-price"));
+
+        addToCart(name, price);
+
+    }
+})
+
+//função adicionar ao carrinho
+function addToCart(name, price) {
+
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.qtd += 1;
+        return
+    }
+    
+    cart.push(
+        {name, price, qtd: 1}
+    )
+
+}
