@@ -49,11 +49,40 @@ function addToCart(name, price) {
 
     if (existingItem) {
         existingItem.qtd += 1;
-        return
+
+    } else {
+        cart.push(
+            {name, price, qtd: 1}
+        )
     }
     
-    cart.push(
-        {name, price, qtd: 1}
-    )
+    updateCartModal()
 
+}
+
+function updateCartModal() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        const cartItemElement = document.createElement("div");
+
+        cartItemElement.innerHTML = `
+        <div>
+
+            <div>
+                <p>${item.name}</p>
+                <p>${item.qtd}</p>
+                <p>R$ ${item.price}</p>
+            </div>
+
+            <div>
+                <button>Remover<button>
+            </div>
+
+        </div>
+        `
+
+        cartItemsContainer.appendChild(cartItemElement);
+    })
 }
